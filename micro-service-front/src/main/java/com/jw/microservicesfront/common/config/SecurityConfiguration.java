@@ -1,4 +1,4 @@
-package com.jw.microservicesfront.common;
+package com.jw.microservicesfront.common.config;
 
 
 import com.jw.microservicesfront.jwt.JwtAccessDeniedHandler;

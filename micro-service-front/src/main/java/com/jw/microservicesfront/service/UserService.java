@@ -1,9 +1,10 @@
 package com.jw.microservicesfront.service;
 
 import com.jw.microservicesfront.common.util.SecurityUtil;
+import com.jw.microservicesfront.controller.dto.UserDto;
 import com.jw.microservicesfront.entity.Authority;
+import com.jw.microservicesfront.entity.User;
 import com.jw.microservicesfront.repository.UserRepository;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

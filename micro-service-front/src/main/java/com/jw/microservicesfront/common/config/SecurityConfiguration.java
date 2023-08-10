@@ -67,8 +67,8 @@ public class SecurityConfiguration {
                 .authorizeRequests()
                 /*.antMatchers("/api/authenticate").permitAll()
                 .antMatchers("/api/signup").permitAll()*/
-                .anyRequest().authenticated()
-
+                /*.anyRequest().authenticated()*/
+                .anyRequest().permitAll()
                 .and()
                 .apply(new JwtSecurityConfiguration(tokenProvider));
 

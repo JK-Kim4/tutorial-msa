@@ -3,6 +3,8 @@ package com.jw.microservicesfront.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jw.microservicesfront.controller.dto.LoginDto;
+import com.jw.microservicesfront.controller.dto.TokenDto;
 import com.jw.microservicesfront.controller.dto.UserDto;
 import com.jw.microservicesfront.domain.User;
 import lombok.extern.slf4j.Slf4j;
@@ -62,6 +64,23 @@ public class ApiController {
      * - Response
      *
      * */
+    @PostMapping("/user/authentication")
+    public Mono<TokenDto> requestAuthentication(
+            @RequestBody LoginDto dto) throws JsonProcessingException {
+
+        logger.info("authentication request dto: {}", dto.toString());
+
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonString = mapper.writeValueAsString(dto);
+
+        return webClient.post()
+                .uri("/api/authenticate")
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(BodyInserters.fromValue(jsonString))
+                .retrieve()
+                .bodyToMono(TokenDto.class);
+
+    }
 
 
 

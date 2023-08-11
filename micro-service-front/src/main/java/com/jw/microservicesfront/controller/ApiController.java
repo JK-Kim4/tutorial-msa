@@ -58,7 +58,7 @@ public class ApiController {
 
 
     /** 로그인 인증 (토큰 발급)
-     * localhost:9090/api/user/{username}
+     * localhost:9090/api/authenticate
      *
      * - RequestParam String username
      * - Response
@@ -81,6 +81,16 @@ public class ApiController {
                 .bodyToMono(TokenDto.class);
 
     }
+
+    /**
+     * 토큰 권한 확인
+     * localhost:9090/api/user/{username}
+     *
+     * - RequestHeader key: Authorization
+     * - RequestParam String username
+     * - Response
+     *
+     * */
 
 
 

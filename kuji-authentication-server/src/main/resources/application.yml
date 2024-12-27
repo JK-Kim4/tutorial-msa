@@ -1,0 +1,50 @@
+spring:
+  application:
+    name: kuji-authentication
+  datasource:
+    driver-class-name: org.h2.Driver
+    hikari:
+      jdbc-url: jdbc:h2:tcp://localhost/~/kuji
+      username: sa
+      password: 1234
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  mustache:
+    servlet:
+      expose-session-attributes: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  cache:
+    type: redis
+
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+
+logging:
+  level:
+    root: info
+
+oauth:
+  naver:
+    oauth-uri: https://nid.naver.com/oauth2.0/authorize
+    redirect-uri: http://localhost:8080/oauth/login/naver
+    client-id: B7sNNnvCmiUnSWtfHQfU
+    client-secret: N4Om6H6vTy
+  google:
+    oauth-uri: {google-oauth-uri}
+    redirect-uri: {google-redirect-uri}
+    client-id: {google-client-id}
+    client-secret: {google-client-secret}
+  kakao:
+    oauth-uri: {kakao-oauth-uri}
+    redirect-uri: {kakao-redirect-uri}
+    client-id: {kakao-client-id}
+    client-secret: {kakao-client-secret}

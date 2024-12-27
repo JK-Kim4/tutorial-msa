@@ -1,20 +1,23 @@
-package com.kuji.kujiauthenticationserver.member.application.dto;
+package com.kuji.kujiauthenticationserver.member.presentation.dto;
 
 import com.kuji.kujiauthenticationserver.member.domain.Member;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor @Getter
-public class MemberSaveDto {
+public class KujiMemberSaveDto {
 
     private Long memberId;
-    private String account;
+    private String email;
     private String password;
     private String name;
 
+    private String authPlatform;
+    private String authCode;
+
     public Member toEntity(){
         return Member.builder()
-                    .account(this.account)
+
                     .password(this.password)
                     .name(this.name)
                 .build();
